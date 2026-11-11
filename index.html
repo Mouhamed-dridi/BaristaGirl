@@ -1,0 +1,429 @@
+<title>Chayma Dridi Barista & Cheffe</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600&display=swap">
+<style>
+/* Layout: two worlds on one page. A dark espresso band for the barista, a bright "plate" band for the chef, joined by About, Services and Contact. */
+:root{
+  --bg:#fbf7f1; --bg2:#f3e8da; --ink:#2a1810; --ink2:#6b5446; --line:#e3d3c0;
+  --accent:#a85a14; --accent-ink:#ffffff; --accent-band:#e8a35f;
+  --band:#2a1810; --band-ink:#f6ece0; --band-ink2:#cdb8a4; --band-line:#4a3426;
+  --plate:#ffffff; --plate-ink:#2a1810;
+  --display:'Bricolage Grotesque','Trebuchet MS',system-ui,sans-serif;
+  --body:'Figtree',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --radius:14px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#16100c; --bg2:#211812; --ink:#f3e8dc; --ink2:#b9a695; --line:#3a2b21;
+    --accent:#e29a52; --accent-ink:#1a0f08;
+    --band:#0e0907; --band-ink:#f6ece0; --band-ink2:#cdb8a4; --band-line:#32241b;
+    --plate:#261b14; --plate-ink:#f3e8dc; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#16100c; --bg2:#211812; --ink:#f3e8dc; --ink2:#b9a695; --line:#3a2b21;
+  --accent:#e29a52; --accent-ink:#1a0f08;
+  --band:#0e0907; --band-ink:#f6ece0; --band-ink2:#cdb8a4; --band-line:#32241b;
+  --plate:#261b14; --plate-ink:#f3e8dc; color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.6 var(--body);-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit}
+h1,h2,h3{font-family:var(--display);line-height:1.08;margin:0;text-wrap:balance;letter-spacing:-.01em}
+p{margin:0}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1120px;margin-inline:auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.eyebrow{font:600 12px/1 var(--body);letter-spacing:.16em;text-transform:uppercase;color:var(--accent)}
+.band .eyebrow{color:var(--accent-band)}
+
+/* header */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg);border-bottom:1px solid var(--line)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--bg)}
+.top .wrap{display:flex;align-items:center;gap:20px;padding-block:12px}
+.logo{font:800 20px/1 var(--display);text-decoration:none;margin-right:auto;white-space:nowrap}
+.logo span{color:var(--accent)}
+.nav{display:flex;gap:22px;font:500 15px/1 var(--body)}
+.nav a{text-decoration:none;color:var(--ink2);padding:8px 0}
+.nav a:hover{color:var(--ink)}
+.lang{font:600 13px/1 var(--body);border:1.5px solid var(--ink);background:transparent;color:var(--ink);border-radius:999px;padding:8px 14px;cursor:pointer}
+.lang:hover{background:var(--ink);color:var(--bg)}
+@media(max-width:760px){.nav{display:none}}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:10px;font:600 16px/1 var(--body);text-decoration:none;border-radius:999px;padding:16px 26px;border:1.5px solid transparent;cursor:pointer}
+.btn.primary{background:var(--accent);color:var(--accent-ink)}
+.btn.primary:hover{filter:brightness(1.08)}
+.btn.ghost{border-color:currentColor;background:transparent;color:inherit}
+.btn.ghost:hover{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.band .btn.ghost:hover{background:var(--band-ink);color:var(--band);border-color:var(--band-ink)}
+
+/* hero */
+.hero{padding-block:56px 40px}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
+.hero h1{font-size:clamp(44px,7vw,92px);font-weight:800;margin-top:18px}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.hero .lead{font-size:19px;color:var(--ink2);max-width:46ch;margin-top:22px}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.portrait{position:relative;justify-self:center;width:100%;max-width:440px}
+.portrait::before{content:"";position:absolute;inset:18px -18px -18px 18px;border:2px solid var(--accent);border-radius:var(--radius)}
+.portrait img{position:relative;width:100%;aspect-ratio:1/1.08;object-fit:cover;object-position:50% 20%;border-radius:var(--radius)}
+.doors{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:56px}
+.door{display:flex;flex-direction:column;gap:6px;text-decoration:none;border-radius:var(--radius);padding:22px 24px;min-width:0}
+.door b{font:700 24px/1.1 var(--display)}
+.door span{font-size:15px;opacity:.85}
+.door.cafe{background:var(--band);color:var(--band-ink)}
+.door.cuisine{background:var(--bg2);color:var(--ink);border:1px solid var(--line)}
+.door:hover{transform:translateY(-2px)}
+.door{transition:transform .2s}
+@media(max-width:860px){.hero .wrap{grid-template-columns:1fr}.portrait{max-width:380px;margin-right:18px}.doors{grid-template-columns:1fr}}
+
+/* sections */
+section{padding-block:76px}
+.sec-head{display:grid;gap:14px;max-width:62ch;margin-bottom:36px}
+.sec-head h2{font-size:clamp(32px,4.6vw,56px);font-weight:800}
+.sec-head p{color:var(--ink2)}
+.band{background:var(--band);color:var(--band-ink)}
+.band .sec-head p{color:var(--band-ink2)}
+.plate{background:var(--plate);color:var(--plate-ink)}
+.plate .sec-head p{color:var(--ink2)}
+
+/* about */
+.about .wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:56px;align-items:center}
+.about img{width:100%;aspect-ratio:1/1.05;object-fit:cover;object-position:50% 18%;border-radius:var(--radius)}
+.about h2{font-size:clamp(32px,4.6vw,56px);font-weight:800;margin:14px 0 20px}
+.about p+p{margin-top:14px}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:30px;border-top:1px solid var(--line)}
+.fact{padding:18px 16px 0 0;min-width:0}
+.fact b{display:block;font:800 34px/1 var(--display);color:var(--accent)}
+.fact span{display:block;font-size:14px;color:var(--ink2);margin-top:6px}
+@media(max-width:860px){.about .wrap{grid-template-columns:1fr;gap:32px}.about img{max-width:420px}}
+
+/* barista */
+.drinks{display:grid;grid-template-columns:1.1fr .8fr .9fr;gap:16px;align-items:stretch}
+.drinks figure{margin:0;position:relative;border-radius:var(--radius);overflow:hidden;min-width:0;min-height:340px}
+.drinks img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.drinks figcaption{position:absolute;left:0;right:0;bottom:0;padding:44px 18px 16px;background:linear-gradient(transparent,rgba(14,9,7,.85));color:#f6ece0;font:600 15px/1.2 var(--body)}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:32px}
+.chip{border:1px solid var(--band-line);border-radius:999px;padding:10px 18px;font:500 15px/1 var(--body);color:var(--band-ink)}
+@media(max-width:760px){.drinks{grid-template-columns:1fr 1fr}.drinks figure:first-child{grid-column:1/-1;min-height:380px}.drinks figure{min-height:300px}}
+
+/* chef */
+.mosaic{columns:3 260px;column-gap:14px}
+.mosaic figure{margin:0 0 14px;position:relative;break-inside:avoid;border-radius:var(--radius);overflow:hidden}
+.mosaic img{width:100%;height:auto}
+.mosaic figcaption{position:absolute;left:12px;bottom:12px;background:var(--plate);color:var(--plate-ink);font:600 13px/1 var(--body);padding:8px 12px;border-radius:999px}
+.cuisines{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}
+.cuisines .chip{border-color:var(--line);color:var(--plate-ink)}
+
+/* services + skills */
+.svc{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card{background:var(--bg2);border:1px solid var(--line);border-radius:var(--radius);padding:28px;min-width:0}
+.card h3{font-size:24px;font-weight:700;margin-bottom:14px}
+.card ul{list-style:none;margin:0;padding:0;display:grid;gap:10px;color:var(--ink2)}
+.card li{padding-left:18px;position:relative}
+.card li::before{content:"";position:absolute;left:0;top:.7em;width:7px;height:7px;border-radius:50%;background:var(--accent)}
+@media(max-width:900px){.svc{grid-template-columns:1fr}}
+.skills{display:grid;grid-template-columns:1fr 1fr;gap:56px;margin-top:64px}
+.skills h3{font-size:28px;font-weight:700;margin-bottom:20px}
+.bars{display:grid;gap:18px}
+.bar{display:grid;gap:8px}
+.bar div{display:flex;justify-content:space-between;font-weight:500;gap:12px}
+.bar div span:last-child{color:var(--ink2);font-size:14px}
+.bar i{display:block;height:8px;border-radius:99px;background:var(--line);overflow:hidden}
+.bar i::after{content:"";display:block;height:100%;width:var(--w);background:var(--accent);border-radius:99px}
+.places{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.places li{display:flex;justify-content:space-between;gap:16px;padding:14px 0;border-bottom:1px solid var(--line);align-items:baseline}
+.places b{font:700 18px/1.2 var(--display)}
+.places span{color:var(--ink2);font-size:15px;text-align:right}
+@media(max-width:860px){.skills{grid-template-columns:1fr;gap:44px}}
+
+/* contact */
+.contact h2{font-size:clamp(34px,5vw,64px);font-weight:800;margin:14px 0 14px;max-width:16ch}
+.contact .lead{color:var(--band-ink2);max-width:52ch}
+.socials{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:40px}
+.soc{display:grid;gap:10px;align-content:start;min-width:0}
+.tile{display:grid;gap:18px;justify-items:start;text-decoration:none;border:1px solid var(--band-line);border-radius:var(--radius);padding:22px;min-width:0;color:var(--band-ink);transition:transform .2s,border-color .2s}
+.tile:hover{transform:translateY(-3px);border-color:var(--accent-band)}
+.tile .ico{width:52px;height:52px;border-radius:50%;display:grid;place-items:center;background:var(--band-line);color:var(--accent-band)}
+.tile .ico svg{width:26px;height:26px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.tile small{display:block;font:600 12px/1 var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--band-ink2)}
+.tile strong{display:block;font:600 18px/1.3 var(--body);overflow-wrap:anywhere;margin-top:6px}
+.tile.main{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.tile.main .ico{background:var(--accent-ink);color:var(--accent)}
+.tile.main small{color:var(--accent-ink);opacity:.85}
+.soc .mini{justify-self:start}
+.place{margin-top:22px;color:var(--band-ink2);font-size:15px}
+.place a{color:var(--band-ink)}
+.mini{font:600 14px/1 var(--body);border:1px solid var(--band-ink2);color:var(--band-ink);background:transparent;border-radius:999px;padding:9px 14px;text-decoration:none;cursor:pointer}
+.mini:hover{background:var(--band-ink);color:var(--band)}
+.cvbox{display:flex;flex-wrap:wrap;gap:18px 28px;align-items:center;justify-content:space-between;margin-top:16px;padding:26px;border-radius:var(--radius);background:var(--accent);color:var(--accent-ink)}
+.cvbox b{font:700 26px/1.15 var(--display);display:block}
+.cvbox span{display:block;margin-top:4px;opacity:.9;font-size:15px}
+.cvbox .btn{background:var(--accent-ink);color:var(--accent)}
+@media(max-width:900px){.socials{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.socials{grid-template-columns:1fr}}
+[hidden]{display:none!important}
+.certbtn{margin-top:28px}
+.modal{position:fixed;inset:0;z-index:60;background:rgba(10,6,4,.84);display:grid;place-items:center;padding:max(16px,env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) max(16px,env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
+.sheet{background:var(--bg);color:var(--ink);border-radius:var(--radius);width:100%;max-width:960px;max-height:100%;overflow:auto;padding:22px;display:grid;gap:16px}
+.sheet-head{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.sheet-head h2{font-size:clamp(24px,3.4vw,34px);font-weight:800}
+.x{width:44px;height:44px;border-radius:50%;border:1.5px solid var(--ink);background:transparent;color:var(--ink);font:600 18px/1 var(--body);cursor:pointer;flex:none}
+.x:hover{background:var(--ink);color:var(--bg)}
+.cert-tabs{display:flex;flex-wrap:wrap;gap:10px}
+.cert-tab{font:600 15px/1 var(--body);border:1.5px solid var(--line);background:transparent;color:var(--ink);border-radius:999px;padding:12px 18px;cursor:pointer}
+.cert-tab[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.cert-panel{display:grid;gap:12px;justify-items:center;min-width:0}
+.cert-panel img{width:auto;max-width:100%;max-height:68vh;object-fit:contain;border:1px solid var(--line);border-radius:10px;background:#fff}
+.cert-panel p{color:var(--ink2);font-size:15px;text-align:center}
+.cert-panel a{color:var(--accent)}
+footer{background:var(--band);color:var(--band-ink2);padding-block:26px;font-size:14px;border-top:1px solid var(--band-line)}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.door{transition:none}}
+</style>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="#top">Chayma <span>Dridi</span></a>
+    <nav class="nav" aria-label="Navigation">
+      <a href="#apropos" data-en="About">À propos</a>
+      <a href="#barista" data-en="Barista">Barista</a>
+      <a href="#cuisine" data-en="Chef">Cuisine</a>
+      <a href="#services" data-en="Services">Services</a>
+      <a href="#contact" data-en="Contact">Contact</a>
+    </nav>
+    <button class="lang" id="lang" type="button" aria-label="Changer de langue / Change language">EN</button>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow" data-en="Junior barista · Fast-food chef · Manouba, Tunis">Junior barista · Cheffe fast-food · Manouba, Tunis</p>
+        <h1><span data-en="Coffee at the bar.">Du café au comptoir.</span> <em data-en="Flavour in the kitchen.">Du goût en cuisine.</em></h1>
+        <p class="lead" data-en="I am Chayma. I make coffee, iced drinks and mocktails, and I cook Tunisian, Italian and fast-food dishes. I have worked in five cafés and helped open several of them.">Je suis Chayma. Je prépare cafés, boissons glacées et mocktails, et je cuisine tunisien, italien et fast-food. J’ai travaillé dans cinq cafés et participé à l’ouverture de plusieurs.</p>
+        <div class="cta">
+          <a class="btn primary" href="https://drive.google.com/file/d/1YsbfG9qcPdsnMXIjC-uXYf5NGvDYdPtL/view?usp=drive_link" target="_blank" rel="noopener"><span data-en="Download my CV">Télécharger mon CV</span> ↓</a>
+          <a class="btn ghost" href="#contact" data-en="Contact me">Me contacter</a>
+        </div>
+      </div>
+      <div class="portrait">
+        <img src="hero.jpg" width="1000" height="920" alt="Chayma verse du lait dans une tasse de latte art derrière le comptoir du café">
+      </div>
+    </div>
+    <div class="wrap">
+      <div class="doors" style="grid-column:1/-1">
+        <a class="door cafe" href="#barista"><b data-en="The barista side">Côté barista</b><span data-en="Coffee, iced drinks, cocktails and mocktails">Cafés, boissons glacées, cocktails et mocktails</span></a>
+        <a class="door cuisine" href="#cuisine"><b data-en="The kitchen side">Côté cuisine</b><span data-en="Tunisian, Italian, fast-food and pizza">Tunisien, italien, fast-food et pizza</span></a>
+      </div>
+    </div>
+  </div>
+
+  <section class="about" id="apropos">
+    <div class="wrap">
+      <img src="about.jpg" width="900" height="828" loading="lazy" alt="Chayma souriante au comptoir, un pichet de lait à la main et une tasse de café">
+      <div>
+        <p class="eyebrow" data-en="About me">À propos de moi</p>
+        <h2 data-en="Creative, careful and always smiling.">Créative, rigoureuse et toujours souriante.</h2>
+        <p data-en="I started in the kitchen as a kitchen assistant and trained for the CAP Cuisinier. Then I took an accelerated barista course at the Centre de Formation Barista Tunisie and moved behind the coffee bar." >J’ai commencé en cuisine comme aide commis, avec une formation CAP Cuisinier. J’ai ensuite suivi une formation accélérée de barista au Centre de Formation Barista Tunisie, puis je suis passée derrière le comptoir.</p>
+        <p data-en="I prepare a coffee and a plate with the same care. I like working in a team, I keep my station clean, and I arrive on time. I welcome every customer with a smile.">Je prépare un café comme un plat, avec le même soin. J’aime le travail en équipe, je garde mon poste propre et je suis ponctuelle. J’accueille chaque client avec le sourire.</p>
+        <div class="facts">
+          <div class="fact"><b>5</b><span data-en="cafés worked in">cafés où j’ai travaillé</span></div>
+          <div class="fact"><b>CAP</b><span data-en="Cuisinier diploma">formation Cuisinier</span></div>
+          <div class="fact"><b>3</b><span data-en="languages spoken">langues parlées</span></div>
+        </div>
+        <button class="btn primary certbtn" id="certOpen" type="button" aria-haspopup="dialog"><span data-en="See my certifications">Voir mes certifications</span> →</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="barista">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow" data-en="Part one · Barista">Première partie · Barista</p>
+        <h2 data-en="Behind the coffee bar">Derrière le comptoir</h2>
+        <p data-en="Hot coffees, iced drinks, cocktails and mocktails, plus crêpes, waffles and pancakes. Every cup is prepared and served with attention.">Cafés chauds, boissons glacées, cocktails et mocktails, mais aussi crêpes, gaufres et pancakes. Chaque tasse est préparée et servie avec attention.</p>
+      </div>
+      <div class="drinks">
+        <figure><img src="drink-cappuccino.jpg" width="800" height="1294" loading="lazy" alt="Cappuccino saupoudré de cacao avec trois petits gâteaux à la crème"><figcaption data-en="Cappuccino and sweet treats">Cappuccino et douceurs</figcaption></figure>
+        <figure><img src="drink-frappe.jpg" width="460" height="844" loading="lazy" alt="Grand verre de boisson glacée au chocolat avec chantilly"><figcaption data-en="Iced chocolate with whipped cream">Chocolat glacé et chantilly</figcaption></figure>
+        <figure><img src="drink-mango.jpg" width="543" height="743" loading="lazy" alt="Boisson glacée à la pêche et à la mangue sur un sous-verre en bois"><figcaption data-en="Peach and mango iced drink">Boisson glacée pêche et mangue</figcaption></figure>
+      </div>
+      <div class="chips" aria-label="Boissons">
+        <span class="chip">Espresso</span><span class="chip">Cappuccino</span><span class="chip">Latte</span><span class="chip">Macchiato</span><span class="chip">Americano</span><span class="chip">Mocha</span>
+        <span class="chip" data-en="Iced coffees">Cafés froids</span><span class="chip">Cocktails</span><span class="chip">Mocktails</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="plate" id="cuisine">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow" data-en="Part two · Chef">Deuxième partie · Cuisine</p>
+        <h2 data-en="In the kitchen">En cuisine</h2>
+        <p data-en="I learned the trade in the kitchen. I cook traditional Tunisian dishes, Italian cuisine and fast-food, I write menus, and I keep my station organised and clean.">J’ai appris le métier en cuisine. Je cuisine la cuisine tunisienne traditionnelle, la cuisine italienne et le fast-food, j’écris des menus et je garde mon poste organisé et propre.</p>
+      </div>
+      <div class="mosaic">
+        <figure><img src="plat-paella.jpg" width="900" height="900" loading="lazy" alt="Paella de fruits de mer dans un grand plat"><figcaption data-en="Seafood paella">Paella de fruits de mer</figcaption></figure>
+        <figure><img src="plat-salades.jpg" width="900" height="1200" loading="lazy" alt="Trois salades composées aux œufs durs et légumes"><figcaption data-en="Mixed salads">Salades composées</figcaption></figure>
+        <figure><img src="plat-pates-mer.jpg" width="900" height="900" loading="lazy" alt="Deux assiettes de pâtes, l’une aux fruits de mer"><figcaption data-en="Pasta">Pâtes</figcaption></figure>
+        <figure><img src="plat-tunisien.jpg" width="900" height="1200" loading="lazy" alt="Assiette de pâtes tunisiennes aux petits pois, décorée de persil et citron"><figcaption data-en="Tunisian plate">Plat tunisien</figcaption></figure>
+        <figure><img src="plat-poisson.jpg" width="900" height="1200" loading="lazy" alt="Poisson dans une sauce aux herbes"><figcaption data-en="Fish with herb sauce">Poisson et sauce aux herbes</figcaption></figure>
+        <figure><img src="plat-croustillant.jpg" width="900" height="1200" loading="lazy" alt="Rouleaux croustillants sur une feuille de laitue et un citron"><figcaption data-en="Crispy rolls">Rouleaux croustillants</figcaption></figure>
+        <figure><img src="plat-pates.jpg" width="868" height="1156" loading="lazy" alt="Assiette de pâtes au poulet et aux herbes"><figcaption data-en="Pasta with herbs">Pâtes aux herbes</figcaption></figure>
+        <figure><img src="plat-dressage.jpg" width="900" height="1200" loading="lazy" alt="Dressage soigné de deux portions sur une assiette carrée"><figcaption data-en="Plating">Dressage</figcaption></figure>
+        <figure><img src="plat-salade-riz.jpg" width="900" height="900" loading="lazy" alt="Salade composée et riz sur feuilles de laitue"><figcaption data-en="Salad and rice">Salade et riz</figcaption></figure>
+      </div>
+      <div class="cuisines">
+        <span class="chip" data-en="Traditional Tunisian">Cuisine tunisienne</span><span class="chip" data-en="Italian">Cuisine italienne</span><span class="chip">Fast-food</span><span class="chip">Pizza</span><span class="chip" data-en="Menu creation">Création de menus</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow" data-en="Services and skills">Services et compétences</p>
+        <h2 data-en="What I can do for your café or restaurant">Ce que je peux faire pour votre café ou restaurant</h2>
+      </div>
+      <div class="svc">
+        <div class="card"><h3 data-en="Barista service">Service barista</h3><ul>
+          <li data-en="Hot coffees: espresso, cappuccino, latte, macchiato, americano, mocha">Cafés chauds : espresso, cappuccino, latte, macchiato, americano, mocha</li>
+          <li data-en="Iced coffees and cold drinks">Cafés froids et boissons glacées</li>
+          <li data-en="Cocktails and mocktails">Cocktails et mocktails</li></ul></div>
+        <div class="card"><h3 data-en="Kitchen and menu">Cuisine et carte</h3><ul>
+          <li data-en="Crêpes, waffles and pancakes">Crêpes, gaufres et pancakes</li>
+          <li data-en="Pizza and fast-food">Pizza et fast-food</li>
+          <li data-en="Writing and creating menus">Création et rédaction de menus</li></ul></div>
+        <div class="card"><h3 data-en="Opening and teamwork">Ouverture et équipe</h3><ul>
+          <li data-en="Opening new venues">Ouverture d’établissements</li>
+          <li data-en="Organising the work station">Organisation du poste de travail</li>
+          <li data-en="Customer service and teamwork">Service client et travail en équipe</li></ul></div>
+      </div>
+      <div class="skills">
+        <div>
+          <h3 data-en="Languages">Langues</h3>
+          <div class="bars">
+            <div class="bar"><div><span data-en="Arabic">Arabe</span><span data-en="Native">Langue maternelle</span></div><i style="--w:100%"></i></div>
+            <div class="bar"><div><span data-en="French">Français</span><span data-en="Fluent">Courant</span></div><i style="--w:80%"></i></div>
+            <div class="bar"><div><span data-en="English">Anglais</span><span data-en="Basics">Notions</span></div><i style="--w:35%"></i></div>
+          </div>
+        </div>
+        <div>
+          <h3 data-en="Where I have worked">Où j’ai travaillé</h3>
+          <ul class="places">
+            <li><b>Gamra</b><span>Junior Barista</span></li>
+            <li><b>Loft</b><span>Junior Barista</span></li>
+            <li><b>Flowers</b><span data-en="Barista and fast-food chef">Barista et cheffe fast-food</span></li>
+            <li><b>La Casa</b><span>Junior Barista</span></li>
+            <li><b>Pause Café</b><span>Junior Barista</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band contact" id="contact">
+    <div class="wrap">
+      <p class="eyebrow">Contact</p>
+      <h2 data-en="Let’s work together.">Travaillons ensemble.</h2>
+      <p class="lead" data-en="Opening a café or a restaurant, or looking for a barista or a cook? Find me on Instagram, message me on WhatsApp or send an email.">Vous ouvrez un café ou un restaurant, ou vous cherchez une barista ou une cuisinière ? Retrouvez-moi sur Instagram, écrivez sur WhatsApp ou envoyez un e-mail.</p>
+      <div class="socials">
+        <div class="soc">
+          <a class="tile main" href="https://www.instagram.com/shayma82197/" target="_blank" rel="noopener" aria-label="Instagram @shayma82197">
+            <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></span>
+            <span><small>Instagram</small><strong>@shayma82197</strong></span>
+          </a>
+        </div>
+        <div class="soc">
+          <a class="tile" href="https://wa.me/21653992142" target="_blank" rel="noopener" aria-label="WhatsApp 53 992 142">
+            <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></span>
+            <span><small>WhatsApp</small><strong>53 992 142</strong></span>
+          </a>
+        </div>
+        <div class="soc">
+          <a class="tile" href="mailto:cdridi008@gmail.com" aria-label="E-mail cdridi008@gmail.com">
+            <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg></span>
+            <span><small>E-mail</small><strong id="mail">cdridi008@gmail.com</strong></span>
+          </a>
+          <button class="mini" type="button" data-copy="mail" data-en="Copy the address">Copier l’adresse</button>
+        </div>
+        <div class="soc">
+          <a class="tile" href="tel:+21653992142" aria-label="Téléphone 53 992 142">
+            <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
+            <span><small data-en="Phone">Téléphone</small><strong id="phone">53 992 142</strong></span>
+          </a>
+          <button class="mini" type="button" data-copy="phone" data-en="Copy the number">Copier le numéro</button>
+        </div>
+      </div>
+      <p class="place"><span data-en="Based in">Basée à</span> Manouba, Tunis, Tunisie · <a href="https://www.google.com/maps/search/?api=1&query=Manouba%2C+Tunis" target="_blank" rel="noopener" data-en="See on map">Voir sur la carte</a></p>
+      <div class="cvbox">
+        <div><b data-en="My CV">Mon CV</b><span data-en="One page, PDF. Experience, skills and training.">Une page, en PDF. Expérience, compétences et formation.</span></div>
+        <a class="btn" href="https://drive.google.com/file/d/1YsbfG9qcPdsnMXIjC-uXYf5NGvDYdPtL/view?usp=drive_link" target="_blank" rel="noopener"><span data-en="Download the CV">Télécharger le CV</span> ↓</a>
+      </div>
+    </div>
+  </section>
+</main>
+<div class="modal" id="certModal" role="dialog" aria-modal="true" aria-labelledby="certTitle" hidden>
+  <div class="sheet">
+    <div class="sheet-head">
+      <h2 id="certTitle" data-en="My certifications">Mes certifications</h2>
+      <button class="x" id="certClose" type="button" aria-label="Fermer / Close">✕</button>
+    </div>
+    <div class="cert-tabs">
+      <button class="cert-tab" type="button" aria-pressed="true" data-en="Professional Barista diploma">Diplôme Barista professionnel</button>
+      <button class="cert-tab" type="button" aria-pressed="false" data-en="Crêpe certificate">Certificat Crêpe</button>
+    </div>
+    <div class="cert-panel">
+      <img src="cert-barista.jpg" width="1400" height="985" alt="Diplôme Barista professionnel de Barista Academy Tunisie au nom de Dridi Chaima, daté du 12/09/2025">
+      <p><b>Barista Academy Tunisie</b> · <span data-en="Issued on 12 September 2025">Délivré le 12 septembre 2025</span> · <a href="cert-barista.jpg" target="_blank" rel="noopener" data-en="Open full size">Ouvrir en grand</a></p>
+    </div>
+    <div class="cert-panel" hidden>
+      <img src="cert-crepe.jpg" width="1000" height="1414" alt="Certificat Crêpe de Barista Academy Tunisie au nom de Dridi Chayma, fait à Tunis le 12 septembre 2025">
+      <p><b>Barista Academy Tunisie</b> · <span data-en="Issued on 12 September 2025">Délivré le 12 septembre 2025</span> · <a href="cert-crepe.jpg" target="_blank" rel="noopener" data-en="Open full size">Ouvrir en grand</a></p>
+    </div>
+  </div>
+</div>
+<footer><div class="wrap"><span>© Chayma Dridi</span><span data-en="Barista and chef · Manouba, Tunis">Barista et cheffe · Manouba, Tunis</span></div></footer>
+
+<script>
+(function(){
+  var fr=new Map(), lang='fr', btn=document.getElementById('lang');
+  document.querySelectorAll('[data-en]').forEach(function(el){ fr.set(el, el.textContent); });
+  function apply(l){
+    lang=l;
+    fr.forEach(function(txt, el){ el.textContent = l==='en' ? el.getAttribute('data-en') : txt; });
+    document.documentElement.lang=l;
+    btn.textContent = l==='en' ? 'FR' : 'EN';
+  }
+  btn.addEventListener('click', function(){ apply(lang==='fr' ? 'en' : 'fr'); });
+  // Certifications viewer
+  var modal=document.getElementById('certModal'), openBtn=document.getElementById('certOpen'), closeBtn=document.getElementById('certClose');
+  var tabs=Array.prototype.slice.call(document.querySelectorAll('.cert-tab')), panels=Array.prototype.slice.call(document.querySelectorAll('.cert-panel'));
+  function showCert(i){
+    tabs.forEach(function(t,k){ t.setAttribute('aria-pressed', k===i ? 'true':'false'); });
+    panels.forEach(function(p,k){ p.hidden = k!==i; });
+  }
+  function openCert(){ modal.hidden=false; document.body.style.overflow='hidden'; closeBtn.focus(); }
+  function closeCert(){ modal.hidden=true; document.body.style.overflow=''; openBtn.focus(); }
+  tabs.forEach(function(t,k){ t.addEventListener('click', function(){ showCert(k); }); });
+  openBtn.addEventListener('click', openCert);
+  closeBtn.addEventListener('click', closeCert);
+  modal.addEventListener('click', function(e){ if(e.target===modal) closeCert(); });
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape' && !modal.hidden) closeCert(); });
+  showCert(0);
+  document.querySelectorAll('[data-copy]').forEach(function(b){
+    b.addEventListener('click', function(){
+      var node=document.getElementById(b.getAttribute('data-copy')), old=b.textContent;
+      function done(){ b.textContent = lang==='en' ? 'Copied' : 'Copié'; setTimeout(function(){ b.textContent=old; },1600); }
+      function select(){ var r=document.createRange(); r.selectNodeContents(node); var s=getSelection(); s.removeAllRanges(); s.addRange(r); }
+      try{ navigator.clipboard.writeText(node.textContent.trim()).then(done, select); }catch(e){ select(); }
+    });
+  });
+})();
+</script>
